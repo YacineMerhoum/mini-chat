@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+body {
+    background: linear-gradient(to top, #000000, #0707ca);
+    
+      
+}
+
+header {
+    font-family: 'Lilita One', sans-serif;
+    
+    
+}
+
+footer {
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    color: white;
+}
+
+.chat {
+    color: turquoise;
+    font-size: 20px;
+    font-family: 'Lilita One', sans-serif;
+    text-align: left;
+    width: 100%;
+}
+
+
+.chat2 {
+    color: rgb(255, 255, 255); 
+    font-size: 30px;
+    font-family: 'Lilita One', sans-serif;
+    text-align: left;
+    width: 100%;
+    border: 5px solid #9694946f; 
+    background-color:#9694946f;
+    
+    
+}
+.displaypseudo {
+    font-family: 'Lilita One', sans-serif;
+    font-size: 20px;
+
+
+}
+#scroll {
+    max-height: 630px;  /* Définissez la hauteur maximale souhaitée */
+    overflow-y: scroll;   /* Ajoutez une barre de défilement vertical si nécessaire */
+    border: 9px solid #ccc;  /* Facultatif : Ajoutez une bordure pour mieux visualiser la div */
+    padding: 10px;   /* Facultatif : Ajoutez un peu de rembourrage pour un meilleur aspect */
+    
+    
+}
+
+.message {
+    display: flex;
+    align-items:flex-start;
+    flex-direction: column;
+}
+.message.end {
+    align-items:flex-end;
+}
+
+#connexion {
+    border: 9px solid #ccc;
+    
+}
+
+.displaypseudo {
+    
+    transition: 0.5s;
+    font-size: 2rem;
+    
+}
+
+.displaypseudo:hover {
+    transition: 0.5s;
+    font-size: 2.5rem;    
+   }   
+
