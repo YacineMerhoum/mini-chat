@@ -33,6 +33,7 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
 
 <head>
   <meta charset="UTF-8">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mini Chat de Yizzy</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -54,9 +55,6 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
 
   ?>
 
-
-
-
   <header>
     <nav class="navbar navbar-expand-lg bg-black navbar-dark ">
       <div class="container-md ">
@@ -77,7 +75,8 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
           <p>
 
             <?php if (!empty($_SESSION["username"])) {
-              echo '<p class="text-success fs-3">' . "Bienvenue " .  $_SESSION["username"] . '</p>';
+              echo '<p class="text-success fs-3">' . "Bienvenue " .  $_SESSION["username"] . " " .
+              "<i class='fa-solid fa-face-smile ' style='color: #FFD43B;'></i>" . '</p>';
             } else {
               // Afficher autre chose ou ne rien afficher si la session n'est pas ouverte
               echo '<p class="text-warning fs-3">Session non ouverte</p>';
@@ -99,10 +98,10 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
   </header>
 
   <!-- chat  -->
-  <div class="container text-center mt-5 ">
+  <div class="container text-center mt-5" >
     <div class="row align-items-end">
 
-      <div class="col-9 bg-secondary rounded-5 bg-dark" id="scroll">
+      <div class="col-9 bg-secondary rounded-5 bg-dark  scroll" id="affichageMessage">
 
         <?php foreach ($messages as $key) { ?>
           <?php $text_style = $key['pseudo'] ===  $_SESSION['username'] ? 'text-end' : 'text-start'; ?>
@@ -124,7 +123,7 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
       <div class="col-1">
         <!-- colone invisible -->
       </div>
-      <div class="col-2 bg-white rounded-5" id="displayid" id="scroll">
+      <div class="col-2 bg-white rounded-5  scroll" id="displayid" >
         <?php foreach ($displayPseudo as $key2) { ?>
           <div class="displaypseudo">
 
@@ -144,14 +143,14 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </div>
   <!-- formulaires  -->
-  <form action="message.php" method="post">
+  <form action="message.php" method="post" id="messageForm">
     <div class="container text-center  mt-5 ">
       <div class="row align-items-end">
         <div class="col-9 bg-secondary rounded-5 bg-dark" id="connexion">
           <div class="mb-3">
 
             <label for="pseudo" class="form-label fs-1 text-primary"><strong>Pseudo</strong></label>
-            <input id="input" type="pseudo" class="form-control rounded-pill" name="pseudo" placeholder="Votre pseudo">
+            <input id="pseudo" type="pseudo" class="form-control rounded-pill" name="pseudo" placeholder="Votre pseudo">
             <div class="form-text">Merci de mettre un pseudo respectueux</div>
             <br>
 
@@ -160,8 +159,10 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
             <!-- message -->
             <div class="mb-3">
               <label for="read" class="form-label fs-1 text-primary "><strong>Votre message</strong></label>
-              <input id="input" type="read" class="form-control rounded-pill" name="content" placeholder="Ecrivez-ici votre message">
+              <input id="content" type="read" class="form-control rounded-pill" name="content" placeholder="Ecrivez-ici votre message">
               <!-- bouton --><br>
+
+              <input type="hidden" id="ipUser" value="<?= $_SERVER['REMOTE_ADDR']?>"></input>
 
 
 
@@ -189,7 +190,7 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
   <br><br>
 
 
-  <footer class="p-5 text-center mb-5">
+  <footer class="p-5 text-center ">
     <br>
     <i class="fa-solid fa-cat fa-bounce fa-6x" style="color: #3584e4;"></i>
     <br>
@@ -200,28 +201,11 @@ $displayPseudo = $preparedRequest->fetchAll(PDO::FETCH_ASSOC);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <script src="./index.js"></script>          
+  <script src="./display.js"></script>          
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/23471b5a81.js" crossorigin="anonymous"></script>
-  <script src="index.js"></script>
+  
 </body>
 
 </html>

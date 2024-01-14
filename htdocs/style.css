@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Burned&family=Rubik+Doodle+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 body {
-    background: linear-gradient(to top, #000000, #0707ca);
-    
-      
+    background: linear-gradient(-20deg, #ee7752, #e73c7e, #23a6d5, #2018bd);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 header {
@@ -17,6 +29,7 @@ footer {
     width: 100%;
     height: 100%;
     color: white;
+    
 }
 
 .chat {
@@ -45,9 +58,9 @@ footer {
 
 
 }
-#scroll {
+.scroll {
     max-height: 630px;  /* Définissez la hauteur maximale souhaitée */
-    overflow-y: scroll;   /* Ajoutez une barre de défilement vertical si nécessaire */
+    overflow-y:scroll;  /* Ajoutez une barre de défilement vertical si nécessaire */
     border: 9px solid #ccc;  /* Facultatif : Ajoutez une bordure pour mieux visualiser la div */
     padding: 10px;   /* Facultatif : Ajoutez un peu de rembourrage pour un meilleur aspect */
     
