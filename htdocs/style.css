@@ -93,3 +93,16 @@ footer {
     font-size: 2.5rem;    
    }   
 
+
+   @media (max-width: 1247px) {
+        #displayid {
+            display: none !important;
+        }
+        #affichageMessage {
+            width: 900px;
+        }
+        #connexion {
+            width: 700px;
+        }
+        
+   }
